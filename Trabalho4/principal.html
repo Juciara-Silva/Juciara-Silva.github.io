@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Recordando Memórias!</title>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #f8c28b, #b1ffb1, #e5a5dc, #93c1f5);
+      }
+      
+       /* esse css serve para cetralizar colocar no tema principal*/
+        div.principal{
+            text-align: center;
+            font-size: 50px;
+            line-height: 3;
+            background-color: #f0b1ec; 
+            padding: 5px;
+            color:#3e3b61
+      }
+
+     
+        /* serve para estilizar o carrossel*/
+      .carrossel-container {
+            overflow: hidden;
+            max-width: 600px; 
+            margin: 0 auto; 
+            width: 80%; 
+
+          }
+        /* serve para estilizar o carrossel*/
+        .carrossel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+          /* serve para estilizar a imagem do carrossel*/
+      
+        .item {
+            flex: 0 0 auto;
+            width: 100%; 
+          }
+
+      /* serve para estilizar a imagem do carrossel*/
+        .item img {
+            width: 100%;
+            height: auto;
+        }
+       
+     /* serve para  estilizar o rodapé que chama atenção do usuario*/
+        .underline-text {
+            text-decoration: underline;
+            color:#6c6b6e;
+            text-align: center;
+        }
+
+        /* serve para  estilizar o rodapé que chama atenção do usuario*/
+        h5.duvidas{
+          text-align: center;
+        }
+    </style>
+</head>
+
+
+
+  <body>
+   
+
+    <div class="principal" ><h1></h1>Recordando Memórias </h1><br>
+                      <h3>Viva experiências magicas recordando desenhos animados dos anos 1980, 1990, 2000.</h3>
+
+                      <!--Botões centralizados para passar de uma pagina para outra-->
+
+      
+     <a href="cadastro.html">
+      <button type="button" class="btn btn-outline-primary"> Pagina de cadastro</button>
+      </a>
+
+      <a href="anos80.html">
+        <button type="button" class="btn btn-outline-primary">Anos 1980</button>
+      </a>
+
+      <a href="anos90.html" style="color: #8a2be2; border-color: #8a2be2;">
+        <button type="button" class="btn btn-outline-primary">Anos 1990</button>
+      </a>
+
+      <a href="anos2000.html">
+        <button type="button" class="btn btn-outline-primary">Anos 2000</button>
+      </a>
+
+    
+     
+
+   
+
+
+    
+    </div>
+
+<br>
+
+
+
+    <div class="carrossel-container">
+      <div class="carrossel">
+        <div class="item">
+          <img src="imgs.html/inspetor-bugiganga01.jpg" alt="Imagem 1">
+      </div>
+      <div class="item">
+          <img src="imgs.html/o-pica-pau.jpg" alt="Imagem 2">
+      </div>
+      <div class="item">
+          <img src="imgs.html/o-clube-da-luluzinha (1).jpg" alt="Imagem 3">
+      </div>
+    <div class="item">
+      <img src="imgs.html/x-men-evolution.jpg" alt="Imagem 5">
+  </div>
+  
+     
+  </div>
+          
+      </div>
+  </div>
+
+  <script>
+  //carrossel
+  document.addEventListener('DOMContentLoaded', function () {
+          const carrossel = document.querySelector('.carrossel');
+          let currentSlide = 0;
+
+          function showSlide(index) {
+              carrossel.style.transform = `translateX(-${index * 100}%)`;
+          }
+
+          function nextSlide() {
+              currentSlide = (currentSlide + 1) % carrossel.children.length;
+              showSlide(currentSlide);
+          }
+
+          setInterval(nextSlide, 3000); <!-- Troca de slide a cada 3 segundos (ajuste conforme necessário)-->
+      });
+  
+  </script>
+  <br>
+  <br>
+
+<!--codigo serve para chamar atenção do úsuario--> 
+<p class="underline-text"> ATENÇÃO </p>
+<h5 class="duvidas">Em caso de duvidas entre em contato com a nossa central pelo whatsapp:
+  <a href="https://wa.me/84-992202877" class="underline-text"> Número de Telefone </a>
+    </h5>
+
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

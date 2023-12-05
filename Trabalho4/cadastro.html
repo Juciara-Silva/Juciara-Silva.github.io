@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Filmes Antigos</title>
+  <!-- Adicionando Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+
+      /* serve para estilizar o corpo da pagina*/
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f8c28b, #b1ffb1, #e5a5dc, #93c1f5);
+      text-align: center;
+      padding: 20px;
+    }
+    div.principal{
+            text-align: center;
+            font-size: 50px;
+            line-height: 3;
+            background-color: #f0b1ec; /* Cor de fundo desejada para a parte superior */
+            padding: 5px;
+            color:#3e3b61
+      }
+
+        /* serve para estilizar o cadastro*/
+    .container {
+      max-width: 400px;
+      background-color: #ce59c6;
+      
+      
+    }
+
+    /* serve para  estilizar o rodapé que chama atenção do usuario*/
+
+    .underline-text {
+            text-decoration: underline;
+            color:#6c6b6e;
+            text-align: center;
+        }
+        h5.duvidas{
+          text-align: center;
+        }
+        p.text-success{
+            background-color: #b4cde9;
+        }
+  </style>
+</head>
+<body>
+
+    <div class="principal" ><h1></h1>Recordando Memórias </h1><br>
+        <h3>Viva experiências magicas recordando desenhosanimados dos anos 1980,1990,2000.</h3>
+    </div>
+
+<br>
+<br>
+<br>
+
+  <!--esse é o formulario com tema o nome do usuario o email e a senha-->
+
+  <div class="container">
+    <form id="cadastroForm" class="bg-white p-4 rounded">
+      <h2 class="mb-4">Clássicos Cinematográficos</h2>
+
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+        <small id="emailError" class="form-text text-danger"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha:</label>
+        <div class="input-group">
+          <input type="password" id="senha" name="senha" class="form-control" required>
+          <div class="input-group-append">
+            <span class="input-group-text" onclick="mostrarSenha()">
+              <i class="fa fa-eye"></i>
+            </span>
+          </div>
+        </div>
+        <small id="senhaError" class="form-text text-danger"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <input type="password" id="confirmarSenha" name="confirmarSenha" class="form-control" required>
+        <small id="confirmarSenhaError" class="form-text text-danger"></small>
+      </div>
+
+      <button type="button" onclick="cadastrarFilme()" class="btn btn-primary">Cadastrar</button>
+    </form>
+
+    <div id="sucesso" class="mt-4" style="display: none;">
+      <p class="text-success">Cadastro realizado com sucesso!</p>
+      <button type="button" class="btn btn-secondary" onclick="irParaAProximaPagina()">Ir para a proxima página</button>
+    </div>
+  </div>
+
+  <!-- Adicionando Bootstrap e jQuery para funcionalidades específicas -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function cadastrarFilme() {
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+      const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+      // Validar o formato do e-mail
+      const emailFormat = /\S+@\S+\.\S+/;
+      if (!emailFormat.test(email)) {
+        document.getElementById("emailError").innerText = "Formato de e-mail inválido";
+        return;
+      } else {
+        document.getElementById("emailError").innerText = "";
+      }
+
+      // Validar requisitos de senha (pelo menos uma letra maiúscula e uma minúscula)
+      const senhaFormat = /^(?=.*[a-z])(?=.*[A-Z])/;
+      if (!senhaFormat.test(senha)) {
+        document.getElementById("senhaError").innerText = "A senha deve conter pelo menos uma letra maiúscula e uma minúscula";
+        return;
+      } else {
+        document.getElementById("senhaError").innerText = "";
+      }
+
+      // Confirmar se as senhas coincidem
+      if (senha !== confirmarSenha) {
+        document.getElementById("confirmarSenhaError").innerText = "As senhas não coincidem";
+        return;
+      } else {
+        document.getElementById("confirmarSenhaError").innerText = "";
+      }
+
+      // Exibir mensagem de sucesso e botão para outra página
+      document.getElementById("sucesso").style.display = "block";
+    }
+
+    function irParaAProximaPagina() {
+      // Aqui você pode redirecionar para outra página
+      window.location.href = "principal.html";
+    }
+
+    function mostrarSenha() {
+      const senhaInput = document.getElementById("senha");
+      if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+      } else {
+        senhaInput.type = "password";
+      }
+    }
+  </script>
+
+<br>
+<br>
+<br>
+
+<p class="underline-text"> ATENÇÃO </p>
+<h5 class="duvidas">Em caso de duvidas entre em contato com a nossa central pelo whatsapp:
+  <a href="https://wa.me/84-992202877" class="underline-text"> Número de Telefone </a>
+    </h5>
+
+
+</body>
+</html>
